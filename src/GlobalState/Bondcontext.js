@@ -4,8 +4,8 @@ import logo from "../images/LOGO.png";
 
 
 const myProducts = [
-  { id: 1, name: "DSLR", price: 600, image: logo, status: "new" },
-  { id: 2, name: "Computer", price: 1000, image: logo, status: "hot" },
+  { id: 1, name: "730 days Savings Bond", price: 5000, tittle: "FGN Savings Bond", image: logo, date: "Due October 12, 2024", percent: "11.382", interest: "Quaterly", opening: "Oct/04/2022", closing: "Oct/07/2022", settlement: "Oct/12/2022"  },
+ 
   
 ];
 

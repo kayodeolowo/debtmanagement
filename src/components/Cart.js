@@ -8,10 +8,10 @@ const Cart = () => {
   return (
     <div className="container">
       <h1 className="main-heading">Shopping Cart</h1>
-      <div className="cart-container">
+      <div className="flex">
         {shoppingCart.length ? (
           shoppingCart.map((product) => (
-            <div className="each-product" key={product.id}>
+            <div className="flex" key={product.id}>
               <div className="img-cont">
                 <img
                   src={product.image}
