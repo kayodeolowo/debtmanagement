@@ -18,7 +18,7 @@ const Products = () => {
             <p>{product.price}</p>
           </div>
           <div
-            className="add-to-cart"
+            className="text-[#9AF493]"
             onClick={() => {
               dispatch({
                 type: "ADD_TO_CART",
