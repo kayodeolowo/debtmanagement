@@ -1,9 +1,28 @@
+import BondContextProvider from "./GlobalState/Bondcontext";
+import CartContextProvider from "./GlobalState/CartContext";
+import { BrowserRouter , Routes, Route } from 'react-router-dom';
+import Navbar from "./components/Navbar";
+import Products from "./components/Products";
+import Cart from "./components/Cart";
+
 
 function App() {
   return (
-   <div> 
-    <h1 className="text-red-300"> hy </h1>
-   </div>
+   <> 
+       <BondContextProvider>
+        <CartContextProvider>
+          <BrowserRouter>
+            <Navbar />
+          
+            <Routes>
+              <Route exact path="/" element={<Products/>} />
+              <Route exact path="/cart" element={<Cart/>} />
+              
+            </Routes>
+          </BrowserRouter>
+        </CartContextProvider>
+      </BondContextProvider>
+  </>
   );
 }
 
