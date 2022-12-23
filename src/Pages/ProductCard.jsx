@@ -1,19 +1,19 @@
 import React, { useContext } from "react";
-import { cartContext } from "../GlobalState/CartContext";
-import { bondContext } from "../GlobalState/Bondcontext";
-import {BsSuitHeart} from 'react-icons/bs'
+import { Link,  } from "react-router-dom";
+import { DataContext } from "../Component/Context/DataProvider";
 
-const Products = () => {
-  const { dispatch } = useContext(cartContext);
-  const products = useContext(bondContext);
 
+function ProductCard({ product }) {
+  
+  // const [cart, setCart] = useContext(DataContext).cart;
+  const addToCart = useContext(DataContext).addToCart;
   return (
-    <div className="mx-auto container">
-      <div className="w-[15rem] border-2 px-4 mt-10 rounded-md">
-      {products.map((product) => (
-        <div className="mt-2" key={product.id}>
+    <div>
+      
+        
+         <div className="w-[15rem] border-2 px-4 mt-10 rounded-md" >
           <div className="flex items-center justify-between">
-            <img className="h-8" src={product.image} alt="not-found" />
+              <img className="h-8" src={`${product.url}`} />
             <h1 className="bg-green-300 px-2 text-sm py-1 rounded-xl"> {product.tittle} </h1>
           </div>
           <div className="text-center">
@@ -41,7 +41,7 @@ const Products = () => {
            </div>
 
            <div className="flex justify-between">
-              <h1> Closing </h1> 
+              <h1> Closing Date </h1> 
               <p> {product.closing}</p>  
            </div>
 
@@ -49,30 +49,14 @@ const Products = () => {
               <h1> Settlement </h1> 
               <p> {product.settlement}</p>  
            </div>
-
-            {/* className="text-[#9AF493]" */}
-       
-          <div className="flex items-center w-1/2 mx-auto justify-between border-2 mt-6">
-           
- 
-           <button   onClick={() => {
-              dispatch({
-                type: "ADD_TO_CART",
-                id: product.id,
-                product,
-              });
-            }}> Add to cart </button>
-
-            <BsSuitHeart className=""/> 
-
-          </div>
          
-        </div>
-      ))}
-    </div> 
-
+            
+          
+           
+            <button onClick={() => addToCart(product._id)}>Add To Cart</button>
+      </div>
     </div>
   );
-};
+}
 
-export default Products;
+export default ProductCard;

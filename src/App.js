@@ -1,30 +1,30 @@
-import BondContextProvider from "./GlobalState/Bondcontext";
-import CartContextProvider from "./GlobalState/CartContext";
-import { BrowserRouter , Routes, Route } from 'react-router-dom';
-import Navbar from "./components/Navbar";
-import Products from "./components/Products";
-import Cart from "./components/Cart";
-import SignUp from "./Pages/SignUp";
+
+import { Navbar, Product, ProductDetails, Cart } from "./Component/index";
+import { Route, Routes } from "react-router-dom";
+import { DataProvider } from "./Component/Context/DataProvider";
+import SignUp from "./Pages/Signup";
+import Home from "./Pages/Home";
 
 
 function App() {
   return (
-   <> 
-       <BondContextProvider>
-        <CartContextProvider>
-          <BrowserRouter>
-            <Navbar />
+    <div className="app">
+      <DataProvider>
+        <Navbar />
+        <Routes>
+           <Route path="/" element={<Home />}/>
+          <Route path="/product" element={<Product />}/>
+          <Route path="/cart" element={<Cart />}/>
+           <Route path="/signup" element={<SignUp />}/>
           
-            <Routes>
-              <Route exact path="/" element={<Products/>} />
-              <Route exact path="/cart" element={<Cart/>} />
-               <Route exact path="/signup" element={<SignUp/>} />
-              
-            </Routes>
-          </BrowserRouter>
-        </CartContextProvider>
-      </BondContextProvider>
-  </>
+            
+          
+            
+          
+         
+        </Routes>
+      </DataProvider>
+    </div>
   );
 }
 
