@@ -30,32 +30,34 @@ const Navbar = () => {
  
   
     return (
-      <header className='bg-[#ECF2FE]'> 
-         <div className="flex container mx-auto justify-between  items-center h-20 md:h-16       
-          text-white  z-10  xl:max-w-[1280px] md:px-10  "> 
+      <header className=''> 
+         <div className="flex container mx-auto justify-between  items-center       
+          text-white  z-10  xl:max-w-[1280px] lg:mt-2 lg:px-2  "> 
           
                     
                     <div className=' md:px-0 ' >
                       <NavLink to='/'>
                         <div className='flex items-center'> 
-                       <img   className='hover:cursor-pointer transition h-6 lg:h-12 mt-4' src="./images/coat.png" alt='logo'/>
-                     
-
-                      <h1 className='md:mt-3 mt-3  text-[#1B3781] text-xs sm:ml-2 sm:text-sm font-bold'> DEBT MANAGEMENT OFFICE NIGEIA</h1>  
+                       <img   className='hover:cursor-pointer transition max-h-16 mt-4' src="./images/LOGO.png" alt='logo'/>
+                      
                           </div>
                          </NavLink>
                         
                      </div> 
                      
 
-                     <div    className='md:flex   '> 
-                        <ul id='nav' className=' text-sm   text-[#000000] hidden   md:flex    mt-1 space-x-8  '> 
+                     <div    className=''   > 
+                        <ul id='nav' className=' text-lg   text-textGray hidden   lg:flex  items-center  mt-1 space-x-8  '> 
                         
-                                <NavLink to='/product'  className={({ isActive }) => (isActive ? activeLink : normalLink)}    >  <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold'>Bond Offer </p>   </NavLink>
-                            <NavLink to='/about-us'  className={({ isActive }) => (isActive ? activeLink : normalLink)}    >  <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold'> DMO </p>   </NavLink>
-                              <NavLink to='/features'  className={({ isActive }) => (isActive ? activeLink : normalLink)}    >  <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold'>Features </p>   </NavLink>
-                              <NavLink to='/safety'  className={({ isActive }) => (isActive ? activeLink : normalLink)}    >  <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold'>Login </p>   </NavLink>
-                               <NavLink to='/signup'  className={({ isActive }) => (isActive ? activeLink : normalLink)}    >  <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold'> Sign Up </p>   </NavLink>
+                                <NavLink to='/bond-offer'  className={({ isActive }) => (isActive ? activeLink : normalLink)}    >  <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-semibold'>Bond Offer </p>   </NavLink>
+                            <NavLink   className={({ isActive }) => (isActive ? activeLink : normalLink)}    >  <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition   duration-200 hover:text-semibold'> DMO </p>   </NavLink>
+
+                             <NavLink   className={({ isActive }) => (isActive ? activeLink : normalLink)}    >  <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold'> Features </p>   </NavLink>
+                            
+                              <NavLink   className={({ isActive }) => (isActive ? activeLink : normalLink)}    >  <p className=' hover:text-white hover:bg-primarygreen mt-1 hover:cursor-pointer transition   duration-200 hover:text-semibold border-2 border-primarygreen rounded px-4 py-1 text-primarygreen ml-14'>Login </p>   </NavLink>
+
+
+                               <NavLink   className={({ isActive }) => (isActive ? activeLink : normalLink)}    >  <p className=' hover:text-primarygreen hover:bg-bgcolor hover:border-2 hover:border-primarygreen  mt-1 hover:cursor-pointer transition  duration-200 hover:text-semibold bg-black px-4 py-1 rounded text-white border-2 '> Sign Up </p>   </NavLink>
                             
                              
                           
@@ -65,10 +67,12 @@ const Navbar = () => {
                      <div  className=' mt-2 text-black '> 
                            <Link to='/cart' >
                               <div className="flex items-center"> 
-                                  <FiShoppingCart className=" text-xl sm:text-2xl"> </FiShoppingCart> 
-                               <div className="bg-red-300 rounded-full h-5 w-5 relative top-[-0.5rem] right-[0.5rem] "> 
-                                   <p className="w-full mx-auto text-center text-sm "> {cart.length} </p>
-                               </div>
+                                  <FiShoppingCart className=" text-xl text-headingGray  sm:text-3xl"> </FiShoppingCart> 
+                                  {cart.length > 0 ? (
+                                      <div className=" rounded-full h-5 w-5 relative top-[-0.5rem] right-[0.3rem] lg:right-[0.5rem] "> 
+                                   <p className=" mx-auto text-center text-white rounded-full h-4 w-4  relative bg-cartcolor text-xs "> {cart.length} </p>
+                               </div> ) : ("") }
+                              
                               </div>
                              </Link>
                             
@@ -87,7 +91,7 @@ const Navbar = () => {
 
         
             {/* hamburger */} 
-            <div   onClick={handleNav} className=' md:hidden z-10 mr-2'> 
+            <div   onClick={handleNav} className=' lg:hidden z-10 mr-2'> 
             {nav ? <AiOutlineClose className='text-[#000000]  text-2xl sm:text-3xl items-center mt-1' /> :   <TbMenu2 className='text-[#000000] text-2xl sm:text-3xl items-center mt-1 left-0  duration-50' />}
               
             </div>
@@ -101,7 +105,7 @@ const Navbar = () => {
                                 <NavLink to='/'  className={({ isActive }) => (isActive ? activeLink : normalLink)}  > <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition   duration-200'>Home</p>      </NavLink>
                             
                               <NavLink to='/about-us'  className={({ isActive }) => (isActive ? activeLink : normalLink)}  > <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition   duration-200'>About Us </p>      </NavLink>
-                              <NavLink to='/product'  className={({ isActive }) => (isActive ? activeLink : normalLink)}  > <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition   duration-200'>Bond Offer </p>      </NavLink>
+                              <NavLink to='/bond-offer'  className={({ isActive }) => (isActive ? activeLink : normalLink)}  > <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition   duration-200'>Bond Offer </p>      </NavLink>
                                <NavLink to='/safety'  className={({ isActive }) => (isActive ? activeLink : normalLink)}  > <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition   duration-200'>Safety </p>      </NavLink>
                              <button className='bg-primaryblue px-3 rounded text-[#ffffff] text-sm py-1'> Contact Us </button>
                           

@@ -3,12 +3,22 @@ import { DataContext } from "../Component/Context/DataProvider";
 import {FaCheckSquare} from 'react-icons/fa'
 import {HiOutlinePlusCircle, HiOutlineMinusCircle} from 'react-icons/hi'
 import {BsChevronDown} from "react-icons/bs"
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+
+  import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 
 function Cart() {
+  
   const [cart, setCart] = useContext(DataContext).cart;
   const [total, setTotal] = useState();
+  
+  function notify  ()  {
+    toast("Successfull !!");
+   window.location.reload(false);}
+  ;
+
 
   const getTotal = () => {
     let summ = 0;
@@ -60,32 +70,32 @@ function Cart() {
       { cart.length ? (  cart.map((item, index) =>
        (
          
-        <div key={index} className="flex flex-row border-2 w-11/12 lg:w-full mx-auto mt-4 px-2   lg:px-8 py-2 lg:py-2 h-fit   :h-[6rem]   justify-evenly sm:space-x-4 lg:justify-between rounded-lg   ">
+        <div key={index} className="flex flex-row border-2 w-11/12 lg:w-full mx-auto mt-4 px-2   lg:px-8 py-2 lg:py-4 h-fit  border-primarygreen    justify-evenly sm:space-x-4 lg:justify-between rounded-lg   ">
           
         <div className=" flex flex-col lg:flex-row  lg:space-x-28 items-center  "> 
              <div className="flex mt-4 lg:mt-0  space-x-2 sm:space-x-4 lg:space-x-6"> 
-             <FaCheckSquare className=" lg:mt-6 mt-2"/>
+             <FaCheckSquare className=" lg:mt-6 mt-2 lg:text-xl text-primarygreen"/>
             <img className="lg:h-14 h-8 sm:h-10" src={`${item.url}`} />
             <h1 className="font-bold lg:mt-4 sm:mt-2 lg:text-xl">{item.name}</h1>
          </div>
 
           <div className="  flex mt-10 lg:mt-0  space-x-4  sm:space-x-8  "> 
-              <button className="lg:text-base  border-2 px-2 py-0.5 rounded-sm"> Automatic </button>
-           <button onClick={() => remove(item._id)}>
+              <button className="lg:text-base  border-[1px]  border-textGray text-primarygreen px-2 py-0.5 rounded"> Automatic </button>
+           <button onClick={() => remove(item._id)} className='text-primaryred font-semibold'>
               Delete
             </button>
           </div>
         </div>
 
-          <div className=" mt-2  ">                       
-            <div className=""> 
-              <h1 className="hidden lg:block"> Value(₦) </h1>
+          <div className="   ">                       
+            <div className="text-textGray"> 
+              <h1 className="hidden lg:block  font-medium"> Value(₦) </h1>
             </div>          
             
-           <div className="flex flex-col-reverse space-y-2  lg:flex-row justify-between items-center lg:space-x-5  lg:px-2  lg:pb-2 rounded-lg lg:border-2"> 
-              <h4 className="font-bold mt-2 text-lg sm:text-2xl lg:text-base flex items-center"> <span className="lg:hidden text-sm"> ₦ </span> {item.count * item.price}</h4>
+           <div className="flex flex-col-reverse space-y-2 lg:space-y-0  lg:flex-row justify-between items-center lg:space-x-5  lg:px-2  lg:pb-2 rounded border-primarygreen lg:border-2 lg:pt-1"> 
+              <h4 className="font-bold mt-2 lg:mt-0 text-lg sm:text-2xl lg:text-base text-textGray flex items-center"> <span className="lg:hidden text-sm text-textGray"> ₦ </span> {item.count * item.price}</h4>
               <HiOutlineMinusCircle className="hover:cursor-pointer text-xl sm:text-3xl lg:text-base" onClick={() => decrease(item._id)}> - </HiOutlineMinusCircle>
-              <span>{item.count}</span>
+              <span className="text-textGray">{item.count}</span>
               
               <HiOutlinePlusCircle className="hover:cursor-pointer text-xl sm:text-3xl lg:text-base " onClick={() => increase(item._id)}> + </HiOutlinePlusCircle>
            </div>
@@ -95,14 +105,15 @@ function Cart() {
 
          
         </div>
-      )) ) : (<h1> No Bound Offer Found    <span> <Link to="/product"> <button className="text-green-400"> Please click here to Add </button> </Link> </span>  </h1>) }
+      )) ) : ( <div className="w-1/2   mx-auto mt-[50%] md:mt-[30%] ">  <h1 className="text-center text-primaryred font-medium">You are yet to add Bond Offer to cart   <br/>   <span> <Link to="/bond-offer">
+         <button className="text-green-400 mt-6 mx-auto bg-primarygreen text-white px-6 rounded-md py-1"> Click to Add </button> </Link> </span>  </h1> </div>) }
 
         { cart.length ? ( 
         
        <div> 
-             <div className="border-2 mt-6 pl-16 pr-10 flex flex-col mx-auto rounded-lg w-11/12 lg:w-full lg:flex-row justify-between pt-4 pb-5">
+             <div className="border-2 border-primarygreen mt-6 pl-16 pr-10 flex flex-col mx-auto rounded-lg w-11/12 lg:w-full lg:flex-row justify-between pt-4 pb-5">
        
-        <div className="flex flex-col space-y-8"> 
+        <div className="flex flex-col text-textGray font-medium space-y-8"> 
            <div className="flex space-x-16"> 
                <h1 className="flex "> Fees + Taxes <span className="mt-2 ml-1 ">  <BsChevronDown className="h-3"/> </span>   </h1>
             <h1> N 2.09 </h1>
@@ -115,15 +126,18 @@ function Cart() {
         </div>
 
         <div className="flex lg:items-end mt-4 justify-center lg:justify-start items-center lg:flex-col space-x-4 lg:space-x-0 "> 
-          <h1 className="lg:text-end text-center mt-1 lg:mt-0"> Total Buy </h1>
-          <h1 className="font-bold text-center text-xl sm:text-2xl lg:text-end w-fit  lg:text-lg  mt-1">₦{total + 2.0900} </h1>
+          <h1 className="lg:text-end text-center mt-1 lg:mt-0 text-textGray font-medium"> Total Buy </h1>
+          <h1 className="font-semibold text-center text-xl sm:text-2xl lg:text-end w-fit  lg:text-lg  mt-1">₦{total + 2.0900} </h1>
         </div>
           
         
       </div>
 
-      <div className="w-fit mx-auto flex lg:w-full mt-4 lg:mt-8 lg:justify-end"> 
-        <button className=""> Checkout </button>
+      <div className="w-fit mx-auto flex lg:w-full mt-10 lg:mt-8 lg:justify-end "> 
+       <button onClick={notify} className="bg-primarygreen text-white text-lg md:text-base px-6  py-2  rounded"> Check Out </button> 
+        <ToastContainer />
+         
+        
       </div>
        </div>
         ) : "" }
