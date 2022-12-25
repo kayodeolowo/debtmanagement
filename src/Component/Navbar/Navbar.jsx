@@ -61,11 +61,7 @@ const Navbar = () => {
                              
                              
                              
-                              {/* <NavLink   className={({ isActive }) => (isActive ? activeLink : normalLink)}    >  <p className=' hover:text-white hover:bg-primarygreen mt-1 hover:cursor-pointer transition   duration-200 hover:text-semibold border-2 border-primarygreen rounded px-4 py-1 text-primarygreen ml-14'>Login </p>   </NavLink>
-
-
-                               <NavLink to='/signup'  className={({ isActive }) => (isActive ? activeLink : normalLink)}    >  <p className=' hover:text-primarygreen hover:bg-bgcolor hover:border-2 hover:border-primarygreen  mt-1 hover:cursor-pointer transition  duration-200 hover:text-semibold bg-black px-4 py-1 rounded text-white border-2 '> Sign Up </p>   </NavLink> */}
-                            
+                           
                              
                           
                            
@@ -104,7 +100,7 @@ const Navbar = () => {
             </div>
 
 
-             <div   onClick={handleNav} className={nav ? ' leading-loose text-center    text-2xl   text-[#000000]  left-0 top-4    w-full  mx-auto z-10  absolute  flex h-[50%]    mt-14    flex-col' : 'absolute left-[-100%] '}>
+             <div   onClick={handleNav} className={nav ? ' leading-loose text-center border-b-2 rounded-b-lg border-b-primarygreen   text-2xl   text-[#000000]  left-0 top-4    w-full  mx-auto z-10  absolute  flex h-[50%]    mt-14    flex-col' : 'absolute left-[-100%]  '}>
               <div > 
                   <div  id='bold'> 
                       <ul  className=' text-xl  font-bold mt-[15%] flex flex-col text-center space-y-8     text-black w-fit mx-auto  '> 
@@ -112,11 +108,11 @@ const Navbar = () => {
                                 
                             
                              
-                               {user?.email ? ( <div className=" text-textGray  justify-between items-center text-lg flex flex-col space-y-4"> <NavLink to='/'  className={({ isActive }) => (isActive ? activeLink : normalLink)}  > <p className=' '>Home</p>      </NavLink>  <NavLink to='/bond-offer'> <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Bond Offer </p>   </NavLink>  <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Portfolio </p>                              <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Notification </p>  
+                               {user?.email ? ( <div className=" text-textGray  justify-between items-center text-lg flex flex-col space-y-6"> <NavLink to='/'  className={({ isActive }) => (isActive ? activeLink : normalLink)}  > <p className=' '>Home</p>      </NavLink>  <NavLink to='/bond-offer'> <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Bond Offer </p>   </NavLink>  <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Portfolio </p>                              <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Notification </p>  
                             
                             <NavLink to='/account'>  <RxPerson className=' w-fit mx-auto text-3xl  font-bold'/> </NavLink> </div> ) 
                             :
-                             ( <div className=" text-textGray text-lg items-center  flex  flex-col space-y-4 "> <NavLink to='/'  className={({ isActive }) => (isActive ? activeLink : normalLink)}  > <p className=' '>Home</p>      </NavLink>  <p className='  transition  font-medium  duration-200 '> DMO </p> <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Features </p>    <NavLink to='/signin'>  <p className=' border-2 border-primarygreen rounded px-4 py-1 text-primarygreen  w-fit mx-auto'>Login </p> </NavLink>
+                             ( <div className=" text-textGray text-lg items-center  flex  flex-col space-y-6 "> <NavLink to='/'  className={({ isActive }) => (isActive ? activeLink : normalLink)}  > <p className=' '>Home</p>      </NavLink>  <p className='  transition  font-medium  duration-200 '> DMO </p> <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Features </p>    <NavLink to='/signin'>  <p className=' border-2 border-primarygreen rounded px-4 py-1 text-primarygreen  w-fit mx-auto'>Login </p> </NavLink>
                              <NavLink to='/signup'> <p className=' transition  duration-200 hover:text-semibold bg-black px-4 py-1 rounded text-white border-2 w-fit mx-auto  mt-2 '> Sign Up </p> </NavLink> </div>  ) }
                              
                           

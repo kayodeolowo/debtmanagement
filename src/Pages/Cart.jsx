@@ -3,10 +3,7 @@ import { DataContext } from "../Component/Context/DataProvider";
 import {FaCheckSquare} from 'react-icons/fa'
 import {HiOutlinePlusCircle, HiOutlineMinusCircle} from 'react-icons/hi'
 import {BsChevronDown} from "react-icons/bs"
-import { Link } from "react-router-dom";
 
-  import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
 
 
 function Cart() {

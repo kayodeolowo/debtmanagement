@@ -1,6 +1,5 @@
 import React from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
-// import Favourite from '../components/Favourite'
 import { UserAuth } from '../Component/Context/AuthContext'
 
 const Account = () => {
@@ -13,6 +12,7 @@ const Account = () => {
       navigate('/')
       window.location.reload(false);
       
+      
     } catch (e) {
       console.log(e.message)
     }
@@ -21,24 +21,18 @@ const Account = () => {
   if (user) {
        return (
     <div className='max-w-[1140px] mx-auto'>
-      <div className='flex justify-between items-center my-12 py-8 rounded-div'> 
-        <div> 
-          <h1 className='text-2xl font-bold'> Account </h1>
-            <div className='w-fit mx-auto border-2'> 
-              <p>Hello {user?.email}   </p>
+      <div className='flex w-fit mx-auto justify-between items-center my-12 py-8 rounded-div'> 
+        <div className='flex  flex-col justify-center'> 
+          <h1 className='text-2xl font-bold text-center'> Account </h1>
+            <div className='w-fit mx-auto '> 
+              <p className='mt-4'>Hello {user?.email}   </p>
             </div>
+             <button onClick={handleSignOut} className='mx-10  mt-6 bg-primaryred text-white  py-1 rounded-2xl shadow-lg hover:shadow-2xl'> Sign Out </button>
       </div>
 
-      <div> 
-        <button onClick={handleSignOut} className='border px-6 py-2 rounded-2xl shadow-lg hover:shadow-2xl'> Sign Out </button>
-      </div>
+    
      </div>
-     <div className='flex justify-between items-center my-12 py-8 rounded-div'> 
-      <div className='w-full min-h-[300px]'> 
-        <h1 className='text-2xl font-bold py-4'> Favourite Coin List </h1>
-        {/* <Favourite/> */}
-      </div>
-     </div>
+
     </div>
   ) 
   }else {

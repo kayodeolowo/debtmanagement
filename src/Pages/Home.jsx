@@ -7,7 +7,7 @@ import { UserAuth } from '../Component/Context/AuthContext'
 const Home = () => {
    const {user, logout} = UserAuth( )
   return (
-    <div className='container mx-auto xl:max-w-[1280px] px-4 mt-4 grid lg:flex  background'>
+    <section className='container mx-auto xl:max-w-[1280px] px-4 mt-4 grid lg:flex  background'>
     
         <div className='flex flex-col  lg:mt-28'> 
               <h1 className='text-3xl sm:text-4xl font-medium md:text-5xl lg:text-6xl tracking-wider text-headingGray'>   Subscribe to FGN <br/>  Saving Bond </h1>
@@ -15,8 +15,8 @@ const Home = () => {
 
               <div className='mt-10 lg:mt-12 flex space-x-4 '> 
 
-                {user?.email ? ( <Link to='/bond-offer' >   <button className='bg-primarygreen px-4 py-2 rounded text-gray-200 flex items-center text-white'> Get Started <span> <BsArrowRightShort className='text-white pl-1 text-2xl pt-1 font-bold bg-primarygreen'/> </span> </button> 
-                </Link>) : ( <Link to='/signin' >   <button className='bg-primarygreen px-4 py-2 rounded text-gray-200 flex items-center text-white'> Get Started <span> <BsArrowRightShort className='text-white pl-1 text-2xl pt-1 font-bold bg-primarygreen'/> </span> </button> 
+                {user?.email ? ( <Link to='/bond-offer' >   <button className='bg-primarygreen px-4 py-2 rounded text-gray-200 flex items-center text-white hover:underline transition duration-300'> Get Started <span> <BsArrowRightShort className='text-white pl-1 text-2xl pt-1 font-bold bg-primarygreen'/> </span> </button> 
+                </Link>) : ( <Link to='/signin' >   <button className='bg-primarygreen px-4 py-2 rounded text-gray-200 flex items-center text-white hover:underline transition duration-300'> Get Started <span> <BsArrowRightShort className='text-white pl-1 text-2xl pt-1 font-bold bg-primarygreen'/> </span> </button> 
                 </Link> ) }
                 
 
@@ -25,7 +25,7 @@ const Home = () => {
                       <h1 className='text-xl font-semibold'> See Video </h1>
                   </div>
                   
-              </div>
+        </div>
         
         </div>
 
@@ -36,7 +36,7 @@ const Home = () => {
         </div>
 
 
-    </div>
+    </section>
   )
 }
 
