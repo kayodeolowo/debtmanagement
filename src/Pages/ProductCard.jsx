@@ -3,9 +3,11 @@ import { DataContext } from "../Component/Context/DataProvider";
 import {AiOutlineHeart} from 'react-icons/ai'
 
 
+
 function ProductCard({ product }) {
 
   const addToCart = useContext(DataContext).addToCart;
+ 
   return (
     <div className="container mx-auto ">
       
@@ -50,8 +52,10 @@ function ProductCard({ product }) {
               <p className="font-semibold text-headingGray"> {product.settlement}</p>  
            </div>
          
+             
+
             
-          <div className="w-fit mx-auto flex space-x-2 items-center"> 
+          <div className="w-fit mx-auto flex space-x-2 items-center">
               <button className="bg-primarygreen text-white font-medium px-4 rounded py-2" onClick={() => addToCart(product._id)}>Add to cart</button>
 
               <AiOutlineHeart className="text-2xl"/>

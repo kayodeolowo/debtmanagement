@@ -8,15 +8,15 @@ export const DataProvider = (props) => {
   const [products, setProducts] = useState([
    
 
-    { _id: 1, name: "730 days Savings Bond", price: 50000, tittle: "FGN Savings Bond", url : "../images/coat.png", date: "Due October 12, 2024", percent: "11.382", interest: "Quaterly", opening: "Oct/04/2022", closing: "Oct/07/2022", settlement: "Oct/12/2022" , count: 1, },
+    { _id: 1, name: "730 days Savings Bond", price: 100000, tittle: "FGN Savings Bond", url : "../images/coat.png", date: "Due October 12, 2024", percent: "11.2", interest: "Quaterly", opening: "Oct/04/2022", closing: "Oct/07/2022", settlement: "Oct/12/2022" , count: 1, },
 
-     { _id: 2, name: "730 days Savings Bond", price: 20000, tittle: "FGN Savings Bond", url : "../images/coat.png", date: "Due October 12, 2024", percent: "11.382", interest: "Quaterly", opening: "Oct/04/2022", closing: "Oct/07/2022", settlement: "Oct/12/2022" , count: 1, },
+     { _id: 2, name: "730 days Savings Bond", price: 200000, tittle: "FGN Savings Bond", url : "../images/coat.png", date: "Due October 12, 2024", percent: "9.32", interest: "Quaterly", opening: "Oct/04/2022", closing: "Oct/07/2022", settlement: "Oct/12/2022" , count: 1, },
 
-      { _id: 3, name: "730 days Savings Bond", price: 20000, tittle: "FGN Savings Bond", url : "../images/coat.png", date: "Due October 12, 2024", percent: "11.382", interest: "Quaterly", opening: "Oct/04/2022", closing: "Oct/07/2022", settlement: "Oct/12/2022" , count: 1, },
-       { _id: 4, name: "730 days Savings Bond", price: 20000, tittle: "FGN Savings Bond", url : "../images/coat.png", date: "Due October 12, 2024", percent: "11.382", interest: "Quaterly", opening: "Oct/04/2022", closing: "Oct/07/2022", settlement: "Oct/12/2022" , count: 1, },
-        { _id: 5, name: "730 days Savings Bond", price: 20000, tittle: "FGN Savings Bond", url : "../images/coat.png", date: "Due October 12, 2024", percent: "11.382", interest: "Quaterly", opening: "Oct/04/2022", closing: "Oct/07/2022", settlement: "Oct/12/2022" , count: 1, },
-         { _id: 6, name: "730 days Savings Bond", price: 20000, tittle: "FGN Savings Bond", url : "../images/coat.png", date: "Due October 12, 2024", percent: "11.382", interest: "Quaterly", opening: "Oct/04/2022", closing: "Oct/07/2022", settlement: "Oct/12/2022" , count: 1, },
-          { _id: 7, name: "730 days Savings Bond", price: 20000, tittle: "FGN Savings Bond", url : "../images/coat.png", date: "Due October 12, 2024", percent: "11.382", interest: "Quaterly", opening: "Oct/04/2022", closing: "Oct/07/2022", settlement: "Oct/12/2022" , count: 1, },
+      { _id: 3, name: "730 days Savings Bond", price: 300000, tittle: "FGN Savings Bond", url : "../images/coat.png", date: "Due October 12, 2024", percent: "3.82", interest: "Quaterly", opening: "Oct/14/2022", closing: "Oct/07/2022", settlement: "Oct/12/2022" , count: 1, },
+       { _id: 4, name: "730 days Savings Bond", price: 150000, tittle: "FGN Savings Bond", url : "../images/coat.png", date: "Due October 12, 2024", percent: "21.382", interest: "Quaterly", opening: "Oct/3/2022", closing: "Oct/07/2022", settlement: "Oct/12/2022" , count: 1, },
+        { _id: 5, name: "730 days Savings Bond", price: 230000, tittle: "FGN Savings Bond", url : "../images/coat.png", date: "Due October 12, 2024", percent: "11.45", interest: "Quaterly", opening: "Oct/04/2022", closing: "Oct/07/2022", settlement: "Oct/12/2022" , count: 1, },
+         { _id: 6, name: "730 days Savings Bond", price: 140000, tittle: "FGN Savings Bond", url : "../images/coat.png", date: "Due October 12, 2024", percent: "12.6", interest: "Quaterly", opening: "Oct/02/2022", closing: "Oct/07/2022", settlement: "Oct/12/2022" , count: 1, },
+          { _id: 7, name: "730 days Savings Bond", price: 190000, tittle: "FGN Savings Bond", url : "../images/coat.png", date: "Due October 12, 2024", percent: "16.30", interest: "Quaterly", opening: "Oct/04/2022", closing: "Oct/07/2022", settlement: "Oct/12/2022" , count: 1, },
           
     
    
@@ -40,7 +40,7 @@ export const DataProvider = (props) => {
   useEffect(() => {
     const dataInCart = JSON.parse(localStorage.getItem("dataInCart"));
     if (dataInCart) {
-      setCart(dataInCart);
+      //setCart(dataInCart);
     }
   }, []);
   useEffect(() => {

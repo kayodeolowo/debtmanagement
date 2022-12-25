@@ -3,20 +3,23 @@ import { Link, NavLink } from "react-router-dom";
 
 import { AiOutlineClose } from 'react-icons/ai';
 import { TbMenu2 } from 'react-icons/tb';
-
+import { UserAuth } from "../Context/AuthContext";
 import {FiShoppingCart} from 'react-icons/fi';
 import { DataContext } from "../Context/DataProvider";
+import {RxPerson} from 'react-icons/rx'
 
 
 
 
 const Navbar = () => {
+  const {user, logout} = UserAuth( )
   const [nav, setNav] = useState(false);
   const [logo, setLogo] = useState(false)
     const [cart] = useContext(DataContext).cart;
   
   const activeLink = " text-primaryblue transition duration-300 font-semibold   ";
   const normalLink = "";
+  
 
 
   const handleNav = () => {
@@ -47,24 +50,28 @@ const Navbar = () => {
                      
 
                      <div    className=''   > 
-                        <ul id='nav' className=' text-lg   text-textGray hidden   lg:flex  items-center  mt-1 space-x-8  '> 
                         
-                                <NavLink to='/bond-offer'  className={({ isActive }) => (isActive ? activeLink : normalLink)}    >  <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-semibold'>Bond Offer </p>   </NavLink>
-                            <NavLink   className={({ isActive }) => (isActive ? activeLink : normalLink)}    >  <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition   duration-200 hover:text-semibold'> DMO </p>   </NavLink>
-
-                             <NavLink   className={({ isActive }) => (isActive ? activeLink : normalLink)}    >  <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold'> Features </p>   </NavLink>
+                             
                             
-                              <NavLink   className={({ isActive }) => (isActive ? activeLink : normalLink)}    >  <p className=' hover:text-white hover:bg-primarygreen mt-1 hover:cursor-pointer transition   duration-200 hover:text-semibold border-2 border-primarygreen rounded px-4 py-1 text-primarygreen ml-14'>Login </p>   </NavLink>
+                            
+                             {user?.email ? ( <div className="lg:flex hidden text-textGray  justify-between items-center text-lg mt-1 space-x-8"> <NavLink to='/bond-offer'> <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Bond Offer </p>   </NavLink>  <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Portfolio </p>                              <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Notification </p>  
+                            
+                            <NavLink to='/account'>  <RxPerson className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'/> </NavLink> </div> ) : ( <div className="lg:flex hidden text-textGray text-lg items-center  mt-1 space-x-8">  <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  font-medium  duration-200 hover:text-semibold'> DMO </p> <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Features </p>    <NavLink to='/signin'>  <p className=' hover:text-white hover:bg-primarygreen mt-1 hover:cursor-pointer transition   duration-200 hover:text-semibold border-2 border-primarygreen rounded px-4 py-1 text-primarygreen ml-14'>Login </p> </NavLink>
+                             <NavLink to='/signup'> <p className=' hover:text-primarygreen hover:bg-bgcolor hover:border-2 hover:border-primarygreen  mt-1 hover:cursor-pointer transition  duration-200 hover:text-semibold bg-black px-4 py-1 rounded text-white border-2 '> Sign Up </p> </NavLink> </div>  ) }
+                             
+                             
+                             
+                              {/* <NavLink   className={({ isActive }) => (isActive ? activeLink : normalLink)}    >  <p className=' hover:text-white hover:bg-primarygreen mt-1 hover:cursor-pointer transition   duration-200 hover:text-semibold border-2 border-primarygreen rounded px-4 py-1 text-primarygreen ml-14'>Login </p>   </NavLink>
 
 
-                               <NavLink   className={({ isActive }) => (isActive ? activeLink : normalLink)}    >  <p className=' hover:text-primarygreen hover:bg-bgcolor hover:border-2 hover:border-primarygreen  mt-1 hover:cursor-pointer transition  duration-200 hover:text-semibold bg-black px-4 py-1 rounded text-white border-2 '> Sign Up </p>   </NavLink>
+                               <NavLink to='/signup'  className={({ isActive }) => (isActive ? activeLink : normalLink)}    >  <p className=' hover:text-primarygreen hover:bg-bgcolor hover:border-2 hover:border-primarygreen  mt-1 hover:cursor-pointer transition  duration-200 hover:text-semibold bg-black px-4 py-1 rounded text-white border-2 '> Sign Up </p>   </NavLink> */}
                             
                              
                           
-                            </ul> 
+                           
                      </div>
 
-                     <div  className=' mt-2 text-black '> 
+                     <div  className=' lg:mt-2  mr-4 lg:mr-0 text-black '> 
                            <Link to='/cart' >
                               <div className="flex items-center"> 
                                   <FiShoppingCart className=" text-xl text-headingGray  sm:text-3xl"> </FiShoppingCart> 
@@ -97,17 +104,21 @@ const Navbar = () => {
             </div>
 
 
-             <div   onClick={handleNav} className={nav ? ' leading-loose text-center    text-2xl  absolute text-[#000000]  left-0 top-0    w-full  mx-auto z-10  bg-[#ECF2FE]  duration-300 flex h-full   mt-16    flex-col' : 'absolute left-[-100%] '}>
+             <div   onClick={handleNav} className={nav ? ' leading-loose text-center    text-2xl   text-[#000000]  left-0 top-4    w-full  mx-auto z-10  absolute  flex h-[50%]    mt-14    flex-col' : 'absolute left-[-100%] '}>
               <div > 
                   <div  id='bold'> 
-                      <ul  className=' text-xl  font-bold mt-[40%] flex flex-col text-center space-y-8     text-black w-fit mx-auto  '> 
+                      <ul  className=' text-xl  font-bold mt-[15%] flex flex-col text-center space-y-8     text-black w-fit mx-auto  '> 
                         
-                                <NavLink to='/'  className={({ isActive }) => (isActive ? activeLink : normalLink)}  > <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition   duration-200'>Home</p>      </NavLink>
+                                
                             
-                              <NavLink to='/about-us'  className={({ isActive }) => (isActive ? activeLink : normalLink)}  > <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition   duration-200'>About Us </p>      </NavLink>
-                              <NavLink to='/bond-offer'  className={({ isActive }) => (isActive ? activeLink : normalLink)}  > <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition   duration-200'>Bond Offer </p>      </NavLink>
-                               <NavLink to='/safety'  className={({ isActive }) => (isActive ? activeLink : normalLink)}  > <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition   duration-200'>Safety </p>      </NavLink>
-                             <button className='bg-primaryblue px-3 rounded text-[#ffffff] text-sm py-1'> Contact Us </button>
+                             
+                               {user?.email ? ( <div className=" text-textGray  justify-between items-center text-lg flex flex-col space-y-4"> <NavLink to='/'  className={({ isActive }) => (isActive ? activeLink : normalLink)}  > <p className=' '>Home</p>      </NavLink>  <NavLink to='/bond-offer'> <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Bond Offer </p>   </NavLink>  <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Portfolio </p>                              <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Notification </p>  
+                            
+                            <NavLink to='/account'>  <RxPerson className=' w-fit mx-auto text-3xl  font-bold'/> </NavLink> </div> ) 
+                            :
+                             ( <div className=" text-textGray text-lg items-center  flex  flex-col space-y-4 "> <NavLink to='/'  className={({ isActive }) => (isActive ? activeLink : normalLink)}  > <p className=' '>Home</p>      </NavLink>  <p className='  transition  font-medium  duration-200 '> DMO </p> <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Features </p>    <NavLink to='/signin'>  <p className=' border-2 border-primarygreen rounded px-4 py-1 text-primarygreen  w-fit mx-auto'>Login </p> </NavLink>
+                             <NavLink to='/signup'> <p className=' transition  duration-200 hover:text-semibold bg-black px-4 py-1 rounded text-white border-2 w-fit mx-auto  mt-2 '> Sign Up </p> </NavLink> </div>  ) }
+                             
                           
                             </ul>
                   </div>

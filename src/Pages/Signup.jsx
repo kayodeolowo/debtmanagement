@@ -1,38 +1,71 @@
-import React from 'react'
-import {FaCheckSquare} from 'react-icons/fa'
+ import React, { useState } from 'react'
+import {AiOutlineMail, AiFillLock} from 'react-icons/ai'
+import { Link, useNavigate } from 'react-router-dom'
+import { UserAuth } from '../Component/Context/AuthContext';
 
-const SignUp = () => {
+const Signup = () => {
+
+  const [email, setEmail] = useState(''); 
+  const [password, setPassword] = useState('');
+    const [firstname, setFirstname] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+  const {signUp} = UserAuth ();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setError('')
+    try{
+        await signUp(email,password,firstname)
+        navigate('/bond-offer')
+    }catch (e) {
+      alert(e.message)
+     
+      
+    }
+  }
+
+
+
   return (
     <div>
-        <div className='border-2  mx-auto container'> 
-           <div className='text-center'> 
-                     <h1 className='text-3xl font-semibold'> SignUp </h1>
-                     <p> 
-                         Stop spending, Start Investing
-                     </p>
-           </div>
+        <div>
+      <div className='max-w-[400px] mx-auto min-h-[600px] px-4 py-20'>
+          <h1 className='text-2xl font-bold text-center'> Sign Up </h1>
+          {error? <p className='bg-red-300 my-2'>{setError} </p> : null }
+          <form onSubmit={handleSubmit}> 
+            <div className='py-4'> 
+              <label> Email </label>
+              <div className='my-2 w-full relative rounded-2xl shadow-xl'> 
+                <input onChange={(e)=>setEmail(e.target.value)} className='w-full p-2 bg-primary border-input rounded-2xl' type='email'/>
+                <AiOutlineMail className='absolute right-2 top-3'/>
+              </div>
+            </div>
 
-           <div className='mt-3  md:w-2/6 mx-auto'> 
+             <div className='my-4'> 
+              <label> Firstname </label>
+              <div className='my-2 w-full relative rounded-2xl shadow-xl'> 
+                <input onChange={(e)=>setFirstname(e.target.value)} className='w-full p-2 bg-primary border-input rounded-2xl' type='Firstname' />
+                {/* <AiFillLock className='absolute right-2 top-3'/> */}
+              </div>
+            </div>
 
-                <div className=''>
-                    <h1 className='text-[0.65rem]'> First Name </h1> 
-                    <input className='border-2 w-full  py-1.5 px-2 mt-0.5 text-sm rounded-sm'  placeholder='Enter your First Name' /> 
-                </div>
+            <div className='my-4'> 
+              <label> Password </label>
+              <div className='my-2 w-full relative rounded-2xl shadow-xl'> 
+                <input onChange={(e)=>setPassword(e.target.value)} className='w-full p-2 bg-primary border-input rounded-2xl' type='password' />
+                <AiFillLock className='absolute right-2 top-3'/>
+              </div>
+            </div>
 
-
-                <div className='flex items-center'> 
-                    <FaCheckSquare> </FaCheckSquare>
-                    <h1> By Continuing, you agree to the Terms and Conditions</h1>
-                </div>
-
-
-                <div> 
-                    <button className='bg-black w-full text-white'> Sign Up   </button>
-                </div>
-           </div>
-        </div>
+            
+            <button className='w-full my-2 p-3 bg-button text-btnText rounded-2xl shadow-xl '> Sign Up </button>
+          </form>
+          <p> Already have an account? <Link to='/signin' className='text-green-700 font-bold'> Sign In </Link>  </p>
+        </div> 
+    </div>
     </div>
   )
 }
 
-export default SignUp
+export default Signup

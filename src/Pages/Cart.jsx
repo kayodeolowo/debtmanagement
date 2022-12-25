@@ -3,7 +3,7 @@ import { DataContext } from "../Component/Context/DataProvider";
 import {FaCheckSquare} from 'react-icons/fa'
 import {HiOutlinePlusCircle, HiOutlineMinusCircle} from 'react-icons/hi'
 import {BsChevronDown} from "react-icons/bs"
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
   import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
@@ -14,10 +14,7 @@ function Cart() {
   const [cart, setCart] = useContext(DataContext).cart;
   const [total, setTotal] = useState();
   
-  function notify  ()  {
-    toast("Successfull !!");
-   window.location.reload(false);}
-  ;
+ 
 
 
   const getTotal = () => {
@@ -93,7 +90,7 @@ function Cart() {
             </div>          
             
            <div className="flex flex-col-reverse space-y-2 lg:space-y-0  lg:flex-row justify-between items-center lg:space-x-5  lg:px-2  lg:pb-2 rounded border-primarygreen lg:border-2 lg:pt-1"> 
-              <h4 className="font-bold mt-2 lg:mt-0 text-lg sm:text-2xl lg:text-base text-textGray flex items-center"> <span className="lg:hidden text-sm text-textGray"> ₦ </span> {item.count * item.price}</h4>
+              <h4 className="font-bold mt-4  lg:mt-0 text-sm sm:text-2xl lg:text-base text-textGray flex items-center"> <span className="lg:hidden text-sm text-textGray"> ₦ </span> {item.count * item.price}</h4>
               <HiOutlineMinusCircle className="hover:cursor-pointer text-xl sm:text-3xl lg:text-base" onClick={() => decrease(item._id)}> - </HiOutlineMinusCircle>
               <span className="text-textGray">{item.count}</span>
               
@@ -105,8 +102,18 @@ function Cart() {
 
          
         </div>
-      )) ) : ( <div className="w-1/2   mx-auto mt-[50%] md:mt-[30%] ">  <h1 className="text-center text-primaryred font-medium">You are yet to add Bond Offer to cart   <br/>   <span> <Link to="/bond-offer">
-         <button className="text-green-400 mt-6 mx-auto bg-primarygreen text-white px-6 rounded-md py-1"> Click to Add </button> </Link> </span>  </h1> </div>) }
+      )) ) : ( <div className="w-1/2   mx-auto mt-[50%] md:mt-[10%] ">  <h1 className="text-center text-lg md:text-2xl text-primaryred font-medium">You are yet to add Bond Offer to Cart  
+       {/* <br/>   <span> 
+        
+        <Link to="/bond-offer">
+         
+         <button className="text-green-400 mt-6 mx-auto bg-primarygreen text-white px-6 rounded-md py-1"> Click to Add </button>
+          </Link> </span>  */}
+          
+           </h1> 
+           <img className="w-fit mt-4 mx-auto"  src="./images/emptycart.png"/>
+           </div>)  
+       }
 
         { cart.length ? ( 
         
@@ -127,15 +134,15 @@ function Cart() {
 
         <div className="flex lg:items-end mt-4 justify-center lg:justify-start items-center lg:flex-col space-x-4 lg:space-x-0 "> 
           <h1 className="lg:text-end text-center mt-1 lg:mt-0 text-textGray font-medium"> Total Buy </h1>
-          <h1 className="font-semibold text-center text-xl sm:text-2xl lg:text-end w-fit  lg:text-lg  mt-1">₦{total + 2.0900} </h1>
+          <h1 className="font-semibold text-center text-base sm:text-2xl lg:text-end w-fit  lg:text-lg  mt-1">₦{total + 2.0900} </h1>
         </div>
           
         
       </div>
 
       <div className="w-fit mx-auto flex lg:w-full mt-10 lg:mt-8 lg:justify-end "> 
-       <button onClick={notify} className="bg-primarygreen text-white text-lg md:text-base px-6  py-2  rounded"> Check Out </button> 
-        <ToastContainer />
+       <button  className="bg-primarygreen text-white text-lg md:text-base px-6   py-2  rounded"> Check Out </button> 
+       
          
         
       </div>
