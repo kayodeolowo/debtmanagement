@@ -31,16 +31,9 @@ const Signup = () => {
 
 
 
-
-
   return (
     <div id='bg' className='h-screen'>
-      
-
-
-        <div className='max-w-[400px] mx-auto container  '>
-
-
+     <div className='max-w-[400px] mx-auto container  '>
       <div className='w-11/12 mx-auto relative '>
           <h1 className='text-xl md:text-2xl lg:text-3xl mt-6 font-bold text-center text-headingGray '> Sign Up </h1>
          

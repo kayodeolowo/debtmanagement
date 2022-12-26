@@ -100,13 +100,7 @@ function Cart() {
          
         </div>
       )) ) : ( <div className="w-1/2   mx-auto mt-[50%] md:mt-[10%] ">  <h1 className="text-center text-lg md:text-2xl text-primaryred font-medium">You are yet to add Bond Offer to Cart  
-       {/* <br/>   <span> 
-        
-        <Link to="/bond-offer">
-         
-         <button className="text-green-400 mt-6 mx-auto bg-primarygreen text-white px-6 rounded-md py-1"> Click to Add </button>
-          </Link> </span>  */}
-          
+       
            </h1> 
            <img className="w-fit mt-4 mx-auto"  src="./images/emptycart.png"/>
            </div>)  

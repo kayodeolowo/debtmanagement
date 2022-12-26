@@ -18,11 +18,6 @@ export const DataProvider = (props) => {
          { _id: 6, name: "730 days Savings Bond", price: 140000, tittle: "FGN Savings Bond", url : "../images/coat.png", date: "Due October 12, 2024", percent: "12.6", interest: "Quaterly", opening: "Oct/02/2022", closing: "Oct/07/2022", settlement: "Oct/12/2022" , count: 1, },
           { _id: 7, name: "730 days Savings Bond", price: 190000, tittle: "FGN Savings Bond", url : "../images/coat.png", date: "Due October 12, 2024", percent: "16.30", interest: "Quaterly", opening: "Oct/04/2022", closing: "Oct/07/2022", settlement: "Oct/12/2022" , count: 1, },
           
-    
-   
-    
-    
-   
   ]);
   
 

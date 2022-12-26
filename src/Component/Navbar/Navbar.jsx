@@ -94,7 +94,7 @@ const Navbar = () => {
             </div>
 
 
-             <div   onClick={handleNav} className={nav ? ' leading-loose text-center     text-2xl   text-[#000000]  left-0 top-5    w-full  mx-auto z-10  absolute  flex h-[80%]    mt-14    flex-col' : 'absolute left-[-100%]  '}>
+             <div   onClick={handleNav} className={nav ? ' leading-loose text-center     text-2xl   text-[#000000]  left-0 top-5    w-full  mx-auto z-10  absolute  flex h-[100%]    mt-14    flex-col' : 'absolute left-[-100%]  '}>
               <div > 
                   <div  id='bold'> 
                       <ul  className=' text-xl  font-bold mt-[25%] flex flex-col text-center space-y-8     text-black w-fit mx-auto  '> 
