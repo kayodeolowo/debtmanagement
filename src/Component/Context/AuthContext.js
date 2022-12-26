@@ -5,20 +5,18 @@ import {
     createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged
 } from 'firebase/auth'
 
-import {doc, setDoc} from 'firebase/firestore' 
+ 
 
 const UserContext = createContext()
 
-//enabling user login and sign up and then create a watch list array where list of coins will be stored when favourited
+
 
 export const AuthContextProvider = ({children}) => {
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState({});  
 
-    const signUp = (email, password) => {
-        createUserWithEmailAndPassword(auth, email, password);
-        return setDoc(doc(db, 'users', email),{
-            watchList: [],
-        })
+    const signUp = (email, password,displayName) => {
+     return  createUserWithEmailAndPassword(auth, email, password, displayName);
+       
     };
 
     const signIn = (email,password)=> {
@@ -32,11 +30,14 @@ export const AuthContextProvider = ({children}) => {
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
             setUser(currentUser)
+          
         })
         return ()=> {
            unsubscribe()
         }
     },[])
+
+    
 
     return (
         <UserContext.Provider value={{signUp, signIn, logout, user}}> 

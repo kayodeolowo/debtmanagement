@@ -5,3 +5,11 @@
 *{
     background-color: #ECFBEC;
 }
+
+#bg{
+    background-image: url(/public/images/right.png), url(/public/images/left.png);
+    background-size: 10rem;
+    background-position: right top, left 50%;
+    background-repeat: no-repeat;
+    
+}

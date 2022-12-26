@@ -5,9 +5,8 @@ import {signIn, UserAuth} from '../Component/Context/AuthContext'
 
 
 const SignIn = () => {
-    const [email, setEmail] = useState(''); 
+  const [email, setEmail] = useState(''); 
   const [password, setPassword] = useState('');
-
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const {signIn} = UserAuth();
@@ -27,6 +26,7 @@ const SignIn = () => {
       
       setError(e.message)
       setError(e.response.data.error)
+     
       
     } 
   }
@@ -34,13 +34,8 @@ const SignIn = () => {
 
 
   return (
-    <div> 
-        <div className='absolute flex justify-between  w-full'> 
-            
-       <img className=' h-[10rem] lg:h-[15rem] lg:mt-[14%] mt-[90%]' 
-       src='./images/left.png' />
-       <img className=' h-[10rem] lg:h-[15rem] flex justify-end items-end lg:mt-[4%]' src='./images/right.png' />
-        </div>
+    <div id='bg' className='h-screen'> 
+        
 
 
           <div className='max-w-[400px] mx-auto container '>
@@ -65,7 +60,7 @@ const SignIn = () => {
                 
               </div>
             </div>
-            <button className='w-full mt-6 my-2 p-3 bg-black text-white text-semibold rounded shadow '> Sign In </button>
+            <button className='w-full mt-6 my-2 p-3 bg-black text-white text-semibold rounded shadow hover:text-white hover:bg-primarygreen    hover:cursor-pointer transition  duration-200   '> Sign In </button>
           </form>
           <p className='text-center text-textGray'> Don't have an account? <Link to='/signup' className='text-primarygreen text-lg font-bold'> Sign Up </Link>  </p>
         </div> 

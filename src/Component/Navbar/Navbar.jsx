@@ -9,8 +9,6 @@ import { DataContext } from "../Context/DataProvider";
 import {RxPerson} from 'react-icons/rx'
 
 
-
-
 const Navbar = () => {
   const {user, logout} = UserAuth( )
   const [nav, setNav] = useState(false);
@@ -54,10 +52,16 @@ const Navbar = () => {
                              
                             
                             
-                             {user?.email ? ( <div className="lg:flex hidden text-textGray  justify-between items-center text-lg mt-1 space-x-8"> <NavLink to='/bond-offer'> <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Bond Offer </p>   </NavLink>  <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Portfolio </p>                              <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Notification </p>  
+                             {user?.email ? ( <div className="lg:flex hidden text-textGray  justify-between items-center text-lg mt-1 space-x-8"> 
+                             <NavLink to='/bond-offer'> <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Bond Offer </p>   </NavLink> 
+                              <p className='hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Portfolio</p>               
+                              
+                              <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Notification </p>  
                             
-                            <NavLink to='/account'>  <RxPerson className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'/> </NavLink> </div> ) : ( <div className="lg:flex hidden text-textGray text-lg items-center  mt-1 space-x-8">  <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  font-medium  duration-200 hover:text-semibold'> DMO </p> <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Features </p>    <NavLink to='/signin'>  <p className=' hover:text-white hover:bg-primarygreen mt-1 hover:cursor-pointer transition   duration-200 hover:text-semibold border-2 border-primarygreen rounded px-4 py-1 text-primarygreen ml-14'>Login </p> </NavLink>
-                             <NavLink to='/signup'> <p className=' hover:text-primarygreen hover:bg-bgcolor hover:border-2 hover:border-primarygreen  mt-1 hover:cursor-pointer transition  duration-200 hover:text-semibold bg-black px-4 py-1 rounded text-white border-2 '> Sign Up </p> </NavLink> </div>  ) }
+                            <NavLink to='/account'>  <RxPerson className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'/> </NavLink> </div> ) 
+                            : 
+                            ( <div className="lg:flex hidden text-textGray text-lg items-center  mt-1 space-x-8">  <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  font-medium  duration-200 hover:text-semibold'> DMO </p> <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Features </p>    <NavLink to='/signin'>  <p className=' hover:text-white hover:bg-primarygreen mt-1 hover:cursor-pointer transition   duration-200 hover:text-semibold border-2 border-primarygreen rounded px-4 py-1 text-primarygreen ml-14'>Login </p> </NavLink>
+                             <NavLink to='/signup'> <p className=' hover:text-primarygreen hover:bg-bgcolor hover:border-2 hover:border-primarygreen  hover:cursor-pointer transition  duration-200 hover:text-semibold bg-black px-4 py-1 rounded text-white border-2  mt-1 '> Sign Up </p> </NavLink> </div>  ) }
                              
                              
                              
@@ -80,30 +84,20 @@ const Navbar = () => {
                              </Link>
                             
                       </div>
-
-                     
-
-                
-                            
-                       
-
-              
-               
-            
            
 
         
-            {/* hamburger */} 
+            {/* mobile hamburger */} 
             <div   onClick={handleNav} className=' lg:hidden z-10 mr-2'> 
             {nav ? <AiOutlineClose className='text-[#000000]  text-2xl sm:text-3xl items-center mt-1' /> :   <TbMenu2 className='text-[#000000] text-2xl sm:text-3xl items-center mt-1 left-0  duration-50' />}
               
             </div>
 
 
-             <div   onClick={handleNav} className={nav ? ' leading-loose text-center border-b-2 rounded-b-lg border-b-primarygreen   text-2xl   text-[#000000]  left-0 top-4    w-full  mx-auto z-10  absolute  flex h-[50%]    mt-14    flex-col' : 'absolute left-[-100%]  '}>
+             <div   onClick={handleNav} className={nav ? ' leading-loose text-center     text-2xl   text-[#000000]  left-0 top-5    w-full  mx-auto z-10  absolute  flex h-[80%]    mt-14    flex-col' : 'absolute left-[-100%]  '}>
               <div > 
                   <div  id='bold'> 
-                      <ul  className=' text-xl  font-bold mt-[15%] flex flex-col text-center space-y-8     text-black w-fit mx-auto  '> 
+                      <ul  className=' text-xl  font-bold mt-[25%] flex flex-col text-center space-y-8     text-black w-fit mx-auto  '> 
                         
                                 
                             
