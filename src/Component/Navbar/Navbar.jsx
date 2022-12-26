@@ -72,16 +72,16 @@ const Navbar = () => {
                      </div>
 
                      <div  className=' lg:mt-2  mr-4 lg:mr-0 text-black '> 
-                           <Link to='/cart' >
-                              <div className="flex items-center"> 
-                                  <FiShoppingCart className=" text-xl text-headingGray  sm:text-3xl"> </FiShoppingCart> 
-                                  {cart.length > 0 ? (
-                                      <div className=" rounded-full h-5 w-5 relative top-[-0.5rem] right-[0.3rem] lg:right-[0.5rem] "> 
-                                   <p className=" mx-auto text-center text-white rounded-full h-4 w-4  relative bg-cartcolor text-xs "> {cart.length} </p>
-                               </div> ) : ("") }
-                              
-                              </div>
-                             </Link>
+            <Link to='/cart' className='relative'>
+            <FiShoppingCart className='text-[2rem] ' />
+            <span
+              className={`w-5 h-5 absolute -top-1 -right-2 text-center text-sm  rounded-full bg-primaryred text-white grid place-items-center ${
+                cart.length > 0 ? 'grid' : 'hidden'
+              }`}
+            >
+              {cart?.length}
+            </span>
+          </Link>
                             
                       </div>
            
