@@ -67,7 +67,7 @@ const Signup = () => {
              <div className=''> 
               <label className='font-medium text-textGray'> Email </label>
               <div className='my-2 w-full relative rounded border border-primarygreen'> 
-                <input onChange={(e)=>setEmail(e.target.value)} className='w-full p-2   rounded' type='email' placeholder='Enter your Email'/>
+                <input onChange={(e)=>setEmail(e.target.value)} maxLength={13} minLength={12} className='w-full p-2   rounded' type='email' placeholder='Enter your Email'/>
                 
               </div>
             </div>

@@ -39,7 +39,7 @@ const SignIn = () => {
        <div className=' w-11/12 mx-auto mt-6 relative'>
           <h1 className='text-2xl font-bold text-center'> Sign In </h1>
           
-           {error ? (<p className='text-primaryred font-medium text-center mt-2'> Login Failed, Please Check Email or Password  </p> ) : (<p>  </p>)  }  
+           {error ? (<p className='text-primaryred font-medium text-center mt-2'> Failed, Please Check Email or Password  </p> ) : (<p>  </p>)  }  
 
          
           <form onSubmit={handleSubmit}> 

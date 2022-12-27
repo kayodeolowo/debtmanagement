@@ -12,15 +12,11 @@ function Product() {
   return (
    <div className="container mx-auto xl:max-w-[1280px]  "> 
      <Splide className=' xl:hidden' options={{
-                        
-                       
-                      perPage:1,
+                     perPage:1,
                      arrows: true,
-                        pagination: false,
-                        drag:"free",
-                       gap: "2rem",
-                      
-
+                     pagination: false,
+                     drag:"free",
+                     gap: "2rem",
                     }}  > 
                     
       
@@ -90,18 +86,11 @@ function Product() {
 
     </Splide>
 
-    <Splide className=' xl:flex hidden lg:px-10' options={{
-                        
-                        
-                      perPage:4,
-                     arrows: true,
-                    
-                        pagination: false,
-                        
-                       gap: "1rem",
-                      
-
-                    }}  > 
+    <Splide className=' xl:flex hidden lg:px-10' options={{  
+                    perPage:4,
+                    arrows: true,
+                    pagination: false,
+                    gap: "1rem",       }}  > 
                     
       
       {products.map((product) => (

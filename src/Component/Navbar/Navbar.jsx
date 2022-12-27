@@ -24,11 +24,6 @@ const Navbar = () => {
     setNav(!nav);
     setLogo(!logo)
   };
-
-
-
-
- 
   
     return (
       <header className=''> 
@@ -62,13 +57,7 @@ const Navbar = () => {
                             : 
                             ( <div className="lg:flex hidden text-textGray text-lg items-center  mt-1 space-x-8">  <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  font-medium  duration-200 hover:text-semibold'> DMO </p> <p className=' hover:text-primarygreen mt-1 hover:cursor-pointer transition  hover:text-primaryblue duration-200 hover:text-semibold font-medium'> Features </p>    <NavLink to='/signin'>  <p className=' hover:text-white hover:bg-primarygreen mt-1 hover:cursor-pointer transition   duration-200 hover:text-semibold border-2 border-primarygreen rounded px-4 py-1 text-primarygreen ml-14'>Login </p> </NavLink>
                              <NavLink to='/signup'> <p className=' hover:text-primarygreen hover:bg-bgcolor hover:border-2 hover:border-primarygreen  hover:cursor-pointer transition  duration-200 hover:text-semibold bg-black px-4 py-1 rounded text-white border-2  mt-1 '> Sign Up </p> </NavLink> </div>  ) }
-                             
-                             
-                             
-                           
-                             
-                          
-                           
+                            
                      </div>
 
                      <div  className=' lg:mt-2  mr-4 lg:mr-0 text-black '> 
@@ -83,10 +72,8 @@ const Navbar = () => {
             </span>
           </Link>
                             
-                      </div>
-           
-
-        
+              </div>
+  
             {/* mobile hamburger */} 
             <div   onClick={handleNav} className=' lg:hidden z-10 mr-2'> 
             {nav ? <AiOutlineClose className='text-[#000000]  text-2xl sm:text-3xl items-center mt-1' /> :   <TbMenu2 className='text-[#000000] text-2xl sm:text-3xl items-center mt-1 left-0  duration-50' />}

@@ -10,9 +10,7 @@ const Account = () => {
     try{
       await logout()
       navigate('/')
-      window.location.reload(false);
-      
-      
+      window.location.reload(false);   
     } catch (e) {
       console.log(e.message)
     }
@@ -28,9 +26,7 @@ const Account = () => {
               <p className='mt-4'>Hello {user?.email}   </p>
             </div>
              <button onClick={handleSignOut} className='mx-10  mt-6 bg-primaryred text-white  py-1 rounded-2xl shadow-lg hover:shadow-2xl hover:bg-cartcolor hover:text-black transition duration-300'> Sign Out </button>
-      </div>
-
-    
+      </div>   
      </div>
 
     </div>
@@ -38,9 +34,6 @@ const Account = () => {
   }else {
     return <Navigate to='/signin'/>
   }
-
-
-
  
 }
 
