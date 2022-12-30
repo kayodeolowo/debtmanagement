@@ -7,7 +7,7 @@ import { UserAuth } from '../Component/Context/AuthContext'
 const Home = () => {
    const {user, logout} = UserAuth( )
   return (
-    <section className='container mx-auto xl:max-w-[1280px] px-4 mt-4 grid lg:flex  background'>
+    <main className='container mx-auto xl:max-w-[1280px] px-4 mt-4 grid lg:flex  background'>
     
         <div className='flex flex-col  lg:mt-28'> 
               <h1 className='text-3xl sm:text-4xl font-medium md:text-5xl lg:text-6xl tracking-wider text-headingGray'>   Subscribe to FGN <br/>  Saving Bond </h1>
@@ -31,12 +31,12 @@ const Home = () => {
 
 
         <div className='lg:mt-10 mt-20'> 
-              <img className=' h-full  sm:h-[30rem] lg:h-[35rem]  w-fit mx-auto' src='./images/Home.png' alt='Home' />
+              <img className=' h-full  sm:h-[30rem] lg:h-[35rem]   w-fit mx-auto' src='./images/Home.png' alt='Home' />
 
         </div>
 
 
-    </section>
+    </main>
   )
 }
 
